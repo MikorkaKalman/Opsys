@@ -12,3 +12,13 @@ echo $diff
 #futtatás: ./run.sh /home/public/adottjegyzet
 #esetleg cat log.txt
 #mentés: /home/public/bin/submit.sh fwn10y
+
+#másik tipus
+
+elso_ora=`grep "Mar 17 [[:digit:]]\\{2\\}.*cron-apt:" $1 | cut -f1 -d: | cut -f3 -d" " | sort -n | head -1`
+utolso_ora=`grep "Mar 17 [[:digit:]]\\{2\\}.*cron-apt:" $1 | cut -f1 -d: | cut -f3 -d" " | sort -r | head -1`
+
+#echo $elso_ora
+#echo $utolso_ora
+eredmeny=`expr $utolso_ora - $elso_ora + 1`
+echo "Az eltelt órák: $eredmeny"
