@@ -1,0 +1,14 @@
+#!/bin/bash
+min=`grep "^.*Mar 17.*cron-apt.*$" $1 | cut -d" " -f3 | cut -d":" -f1 | head -1`
+max=`grep "^.*Mar 17.*cron-apt.*$" $1 | cut -d" " -f3 | cut -d":" -f1 | tail -1`
+
+diff=`expr $max - $min + 1`
+echo $diff
+
+#kilépsz majd: u+x run.sh
+#./run.sh-val futtatod
+#ha létre akarod hozni akkor: mkdir -p fwn10y/FELADAT/azonosító
+#miután oda beléptél: mcedit run.sh és megindul itt az első sor
+#futtatás: ./run.sh /home/public/adottjegyzet
+#esetleg cat log.txt
+#mentés: /home/public/bin/submit.sh fwn10y
